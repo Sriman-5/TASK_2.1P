@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome email</title>
+    <link rel="stylesheet" href="sendgrid.css">
+</head>
+<body>
+    <div class="sign-up">
+        SIGN UP FOR DAILY INSIDER
+        <input  id="emailInput" type="email" placeholder="enter your email..."/>
+        <button onclick="subscribe()">Subscribe</button>
+    <p id="message"></p>
+    </div>
+  <script>
+    async function subscribe() {
+      const email = document.getElementById("emailInput").value;
+      const message = document.getElementById("message");
+
+      if (!email) {
+        message.innerText = "Please enter an email.";
+        return;
+      }
+
+       try {
+        const response = await fetch("http://localhost:3000/api/send-welcome", {
+
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
+        });
+
+        const data = await response.json();
+        message.innerText = data.message;
+      } catch (error) {
+        message.innerText = "Try again.";
+        console.error(error);
+      }
+    }
+  </script>
+</body>
+</html>
