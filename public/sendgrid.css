@@ -1,0 +1,37 @@
+.sign-up{
+     display: inline-flex;
+      background-color: #d3d3d3da;
+      padding: 10px;
+      display: inline-flex;   
+      align-items: center;
+      font-family:'Times New Roman', Times, serif;
+      font-weight: bold;
+      padding-right: 0px;   
+      width:40%;  
+
+}
+
+.sign-up input[type="email"]{
+    padding: 4px;
+    margin-left:10px;
+    margin-right:10px;
+    box-sizing: content-box;
+    border: 2px solid #000;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    width:35%;
+    border-radius: 5px;
+    
+
+}
+
+.sign-up button{
+    background-color: rgba(1, 1, 39, 0.319);
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+   
+}
+
+.sign-up button:hover{
+    background-color: #666;
+} 
